@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "musico.h"
+#include "orquesta.h"
 #include "utn.h"
 
 static int proximoId();
@@ -166,6 +167,7 @@ int musico_baja(Musico* arrayMusico,int limiteMusico,int idMusico)
 {
     int retorno=-1;
     int i;
+
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno = -2;

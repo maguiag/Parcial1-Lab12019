@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "orquesta.h"
+#include "musico.h"
 #include "utn.h"
 
 static int proximoId();
