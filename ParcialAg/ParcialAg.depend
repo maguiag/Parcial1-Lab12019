@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1557956229 source:/home/alumno/Escritorio/ParcialAg/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1557956074 /home/alumno/Escritorio/ParcialAg/utn.h
+
+1557956074 source:/home/alumno/Escritorio/ParcialAg/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1558045832 source:/home/alumno/Escritorio/ParcialAg/musico.c
+
