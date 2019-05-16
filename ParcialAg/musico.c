@@ -63,6 +63,37 @@ int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
     return retorno;
 }
 
+/**
+** \brief Muestra musico
+ *
+ * \param array Musico* puntero al array
+ * \param limite int limite definido para el musico
+ * \param
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int musico_mostrar(Musico* arrayMusico, int limiteMusico);
+{
+    int retorno=-1;
+    int i;
+    if(limiteMusico>0 && arrayMusico!=NULL)
+    {
+        retorno=0;
+        for(i=0; i<limiteMusico; i++)
+        {
+            if(!arrayMusico[i].isEmpty)//==0
+            printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
+                                    arrayMusico[i].idMusico,
+                                    arrayMusico[i].nombre,
+                                    arrayMusico[i].apellido,
+                                    arrayMusico[i].edad,
+                                    arrayMusico[i].idOrquesta,
+                                    arrayMusico[i].idInstrumento);
+        }
+        return retorno;
+    }
+}
+
 /** \brief Da de alta al musico
  *
  * \param array Musico* puntero al array
@@ -91,9 +122,9 @@ int musico_alta(Musico* arrayMusico,int limiteMusico)
                 {
                     if(!getValidInt("\nIngrese Edad: ","\nDebe tener solo numeros",auxEdad,5,99,2))
                     {
-                       if(!getValidInt("\nIngrese Id Orquesta: ","\nSolo numeros",auxIdOrquesta,1,6,2))
+                       if(!getValidInt("\nIngrese Id Orquesta: ","\nSolo numeros",auxIdOrquesta,0,6,2))
                        {
-                        if(!getValidInt("\nIngrese Id Instrumento: ","\nSolo numeros",auxIdInstrumento,1,6,2))
+                        if(!getValidInt("\nIngrese Id Instrumento: ","\nSolo numeros",auxIdInstrumento,0,6,2))
 
                         retorno=0;
                         strcpy(arrayMusico[i].nombre,auxNombre);
@@ -175,7 +206,7 @@ int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
             {
                 if(!getValidInt("\nIngrese edad: ","\nSolo numeros",auxEdad,5,99,2))
                 {
-                    if(!getValidInt("\nIngrese IdOrquesta: ","\nSolo numeros",auxIdOrquesta,1,6,2))
+                    if(!getValidInt("\nIngrese IdOrquesta: ","\nSolo numeros",auxIdOrquesta,0,6,2))
                     {
 
                             retorno=0;

@@ -13,6 +13,7 @@ typedef struct
 }Musico;
 
 int musico_init(Musico* arrayMusico,int limiteMusico);
+int musico_mostrar(Musico* arrayMusico, int limiteMusico);
 int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico);
 //int musico_mostrarDebug(Musico* arrayMusico,int limiteMusico);
 int musico_alta(Musico* arrayCLiente,int limiteMusico);

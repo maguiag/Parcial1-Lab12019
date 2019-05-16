@@ -84,7 +84,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
             {
                 if(!getValidString("\nIngrese el lugar: ","\nNo es un lugar","El maximo es de 50",auxLugar,50,2))
                 {
-                    if(!getValidInt("\nIngrese tipo de orquesta: ","\nDebe tener solo numeros",auxTipo,1,5,2))
+                    if(!getValidInt("\nIngrese tipo de orquesta: ","\nDebe tener solo numeros",auxTipo,0,5,2))
                     {
                         retorno=0;
                         strcpy(arrayOrquesta[i].nombre,auxNombre);
@@ -122,6 +122,12 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
 {
     int retorno=-1;
     int i;
+    int opcion;
+
+    getValidInt("\nDesea Eliminar Orquesta y musicos vinculados? (1.si/2.no)","\no Valido",&opcion,0,1,2)
+    if(opcion==1)
+    {
+
     if(limiteOrquesta>0 && arrayOrquesta!=NULL)
     {
         retorno = -2;
@@ -147,6 +153,9 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
             }
         }
     }
+    }
+
+
     return retorno;
 }
 
