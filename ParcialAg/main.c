@@ -13,6 +13,7 @@
 int main()
 {
     int opcion;
+    int auxId;
 
     Orquesta orquesta[CANT_ORQ];
     Musico musico[CANT_MUSICOS];
@@ -28,7 +29,12 @@ int main()
     "\nERROR",&opcion,1,11,2)
     switch(opcion)
     {
-
+        case 1:
+        orquesta_alta(orquesta,CANT_ORQ);
+        break;
+        case 2:
+        getValidInt("\nid Orquesta?","\nerror",&auxId,0,50,2);
+        orquesta_baja_musico(orquesta,CANT_ORQ,auxId,musico,CANT_MUSICOS);
 
 
     }
