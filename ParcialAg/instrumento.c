@@ -84,7 +84,7 @@ int instrumento_alta(Instrumento* arrayInstrumento,int limiteInstrumento)
             if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
             {
 
-                    if(!getValidInt("\nIngrese tipo: ","\nDebe tener solo numeros",auxTipo,0,6,2))
+                    if(!getValidInt("\nIngrese tipo: 1.cuerdas 2.viento-madera 3.viento-metal 4.percusion","\nDebe tener solo numeros",auxTipo,0,6,2))
                     {
                         retorno=0;
                         strcpy(arrayInstrumento[i].nombre,auxNombre);

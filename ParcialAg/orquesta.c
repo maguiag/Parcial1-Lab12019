@@ -85,7 +85,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
             {
                 if(!getValidString("\nIngrese el lugar: ","\nNo es un lugar","El maximo es de 50",auxLugar,50,2))
                 {
-                    if(!getValidInt("\nIngrese tipo de orquesta: ","\nDebe tener solo numeros",auxTipo,0,5,2))
+                    if(!getValidInt("\nIngrese tipo de orquesta: 1.sinfonica 2.filarmonica 3.camara ","\nDebe tener solo numeros",auxTipo,0,5,2))
                     {
                         retorno=0;
                         strcpy(arrayOrquesta[i].nombre,auxNombre);
