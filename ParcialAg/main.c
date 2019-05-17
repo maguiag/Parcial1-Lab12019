@@ -12,6 +12,28 @@
 
 int main()
 {
+    int opcion;
+
+    Orquesta orquesta[CANT_ORQ];
+    Musico musico[CANT_MUSICOS];
+    Instrumento instrumento[CANT_INSTR];
+
+    orquesta_init(orquesta,CANT_ORQ);
+    musico_init(musico,CANT_MUSICOS);
+    instrumento_init(instrumento,CANT_INSTR);
+
+    do
+    {
+     getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar MUsico\n6.Eliminar musico\n7.IMprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.SALIR\n",
+    "\nERROR",&opcion,1,11,2)
+    switch(opcion)
+    {
+
+
+
+    }
+    }
+
 
     return 0;
 }
