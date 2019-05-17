@@ -63,8 +63,7 @@ int main()
         instrumento_mostrar(instrumento,CANT_INSTR);
         break;
     }
-    }
-
+    }while(opcion!=10);
 
     return 0;
 }
