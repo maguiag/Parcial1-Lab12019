@@ -23,6 +23,10 @@ int main()
     musico_init(musico,CANT_MUSICOS);
     instrumento_init(instrumento,CANT_INSTR);
 
+    orquesta_altaForzada(orquesta,CANT_ORQ,"BsAS","CAPITAL",1);
+    musico_altaForzada(musico,CANT_MUSICOS,"juan","gomez",33,20,1);
+    instrumento_altaForzada(instrumento,CANT_INSTR,"guitarra",1);
+
     do
     {
      getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar MUsico\n6.Eliminar musico\n7.IMprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.SALIR\n",
