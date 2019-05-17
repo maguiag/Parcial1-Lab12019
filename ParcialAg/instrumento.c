@@ -162,18 +162,16 @@ int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento
             {
                 if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
                 {
-                    if(!getValidString("\nIngrese apellido: ","\nNo es un apellido","El maximo es de 50",auxApellido,50,2))
+                        if(!getValidInt("\nIngrese tipo: ","\nDebe tener solo numeros",auxTipo,0,6,2))
                     {
-                        if(!getValidInt("\nIngrese CUIT: ","\nDebe tener solo numeros","El maximo es de 11",auxCuit,12,2))
-                        {
-                            retorno=0;
-                            strcpy(arrayInstrumento[i].nombre,auxNombre);
-                            strcpy(arrayInstrumento[i].apellido,auxApellido);
-                            strcpy(arrayInstrumento[i].cuit,auxCuit);
-                            arrayInstrumento[i].idInstrumento=proximoId();
-                            arrayInstrumento[i].isEmpty=0;
-                        }
+                        retorno=0;
+                        strcpy(arrayInstrumento[i].nombre,auxNombre);
+                        strcpy(arrayInstrumento[i].tipo,auxTipo);
+                        arrayInstrumento[i].idInstrumento=proximoId();
+                        arrayInstrumento[i].isEmpty=0;
+                        printf("El IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
                     }
+
                 }
                 else
                 {
@@ -322,3 +320,29 @@ int instrumento_buscarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,
 }
 
 
+/**
+** \brief Muestra instrumento
+ * \param array Instrumento* puntero al array
+ * \param limite int limite definido para el instrumento
+ * \param
+ * \return int [0] OK [1] ERROR
+ *
+ */
+int instrumento_mostrar(Instrumento* arrayInstrumento, int limiteInstrumento)
+{
+    int retorno=-1;
+    int i;
+    if(limiteInstrumento>0 && arrayInstrumento!=NULL)
+    {
+        retorno=0;
+        for(i=0; i<limiteInstrumento; i++)
+        {
+            if(!arrayInstrumento[i].isEmpty)//==0
+            printf("[RELEASE] -ID.Instrumento: %d -NOMBRE: %s -TIPO: %d \n",
+                                    arrayInstrumento[i].idInstrumento,
+                                    arrayInstrumento[i].nombre,
+                                    arrayInstrumento[i].tipo);
+        }
+        return retorno;
+    }
+}

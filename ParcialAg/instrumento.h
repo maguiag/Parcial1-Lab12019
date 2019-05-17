@@ -10,6 +10,7 @@ typedef struct
 }Instrumento;
 
 int instrumento_init(Instrumento* arrayInstrumento,int limiteInstrumento);
+int instrumento_mostrar(Instrumento* arrayInstrumento, int limiteInstrumento);
 int instrumento_mostrarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,int idInstrumento);
 //int instrumento_mostrarDebug(Instrumento* arrayInstrumento,int limiteInstrumento);
 int instrumento_alta(Instrumento* arrayCLiente,int limiteInstrumento);

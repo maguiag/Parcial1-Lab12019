@@ -73,7 +73,7 @@ int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
  * \return int [0] OK [1] ERROR
  *
  */
-int musico_mostrar(Musico* arrayMusico, int limiteMusico);
+int musico_mostrar(Musico* arrayMusico, int limiteMusico)
 {
     int retorno=-1;
     int i;
