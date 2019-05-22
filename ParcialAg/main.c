@@ -24,7 +24,7 @@ int main()
     musico_init(musico,CANT_MUSICOS);
     instrumento_init(instrumento,CANT_INSTR);
 
-    orquesta_altaForzada(orquesta,CANT_ORQ,"BsAS","CAPITAL",1);
+    orquesta_altaForzada(orquesta,CANT_ORQ,Orquesta1,Lugar1,1);
     musico_altaForzada(musico,CANT_MUSICOS,"juan","gomez",33,20,1);
     instrumento_altaForzada(instrumento,CANT_INSTR,"guitarra",1);
 

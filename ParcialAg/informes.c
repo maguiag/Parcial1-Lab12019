@@ -76,10 +76,7 @@ informe_orquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta, Musico* 
  * \return [0] si OK, [-1] si ERROR
  *
  */
-int informar_instrumentos_imprimir(Orquesta* arrayOrquesta, int limitOrquesta, Instrumento* arrayInstrumento, int limiteInstrumento)
-{
 
-}
 contadorOrquesta(Orquesta* arrayOrquesta, int limiteOrquesta)
 {
     int retorno=-1;
@@ -98,6 +95,8 @@ contadorOrquesta(Orquesta* arrayOrquesta, int limiteOrquesta)
     }
     return retorno;
 }
+
+
 contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico, int idOrquesta)
 {
     int retorno =-1;
@@ -109,13 +108,15 @@ contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico, int idOrquesta)
         {
             if(arrayMusico[i].isEmpty==0 && arrayMusico[i].idOrquesta==idOrquesta)
             {
-                contMusicosByOrquesta++
+                contMusicosByOrquesta++;
             }
         }
         retorno=contMusicosByOrquesta;
     }
     return retorno;
 }
+
+
 contador_orquestaByTipo(Orquesta* arrayOrquesta, int limiteOrquesta, int tipo)
 {
     int retorno=-1;
@@ -135,6 +136,8 @@ contador_orquestaByTipo(Orquesta* arrayOrquesta, int limiteOrquesta, int tipo)
 
     return retorno;
 }
+
+
 contador_instrumentosByTipo(Instrumento* arrayInstrumento, int limiteInstrumento,int tipo)
 {
     int retorno=-1;
@@ -149,7 +152,7 @@ contador_instrumentosByTipo(Instrumento* arrayInstrumento, int limiteInstrumento
                 contInstrByTipo++;
             }
         }
-        retorno=ContInstrByTipo;
+        retorno=contInstrByTipo;
     }
     return retorno;
 }
@@ -157,11 +160,31 @@ contador_instrumentosByTipo(Instrumento* arrayInstrumento, int limiteInstrumento
 
 
 
-int informe_OrquestaMasMusicos(,Musico* arrayMusico,int limiteMusico,int idOrquesta)
+int informe_OrquestaMas5(Musico* arrayMusico,int limiteMusico,int idOrquesta)
 {
     int retorno=-1;
     int i;
-    int minMusicos=0;
+    int cantidadMusico;
+    int mas5;
+    if(arrayMusico!=NULL && limiteMusico>0)
+    {
+        retorno =0;
+        for(i=0;i<limiteMusico;i++)
+        {
+            if(!arrayMusico[i].isEmpty)
+            {
+                cantidadMusico=contador_musicosByOrquesta(arrayMusico,limiteMusico,idOrquesta);
+                if(cantidadMusico>5)
+                {
+                printf("[RELEASE] - ID Orquesta: %d - Nombre: %s - Tipo: %d - Cantidad de musicos: %d \n ",arrayOrquesta[i].idOrquesta,
+                                                                                                           arrayOrquesta[i].nombre,
+                                                                                                           arrayOrquesta[i].tipo,
+                                                                                                           cantidadMusico);
+                }
+            }
+        }
+    }
+
 
 return retorno;
 
@@ -170,7 +193,54 @@ return retorno;
 
 
 
-informar_promedioMusOrq(Orquesta* arrayOrquesta, int limiteOrquesta, Musico* arrayMusico, int limiteMusico)
+listar_musicosMas30(Musico* arrayMusico, int limiteMusico)
+{
+    int retorno=-1;
+    int i;
+    int minimaEdad=30;
+
+    if(arrayMusico!=NULL && limiteMusico>0)
+    {
+        retorno=0;
+        for(i=0;i<limiteMusico;i++)
+        {
+            if(!arrayMusico[i].isEmpty)
+            {
+                if(musico[i].edad>minimaEdad)
+                {
+                    printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
+                                    arrayMusico[i].idMusico,
+                                    arrayMusico[i].nombre,
+                                    arrayMusico[i].apellido,
+                                    arrayMusico[i].edad,
+                                    arrayMusico[i].idOrquesta,
+                                    arrayMusico[i].idInstrumento);
+                }
+            }
+        }
+    }
+    return retorno;
+}
+
+listar_musicos_orquestaById(Orquesta* arrayOrquesta, int limiteOrquesta, int idOrquesta,)
+
 {
 
+    int retorno=-1;
+    int i;
+    int j;
+    if(limiteOrquesta>0 && arrayOrquesta!=NULL)
+    {
+        retorno=0;
+        for(i=0; i<limiteOrquesta; i++)
+        {
+            if(!arrayOrquesta[i].isEmpty)//==0
+            printf("[RELEASE] - ID Orquesta: %d - Nombre: %s - Lugar: %s - Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
+                                                                                        arrayOrquesta[i].nombre,
+                                                                                        arrayOrquesta[i].lugar,
+                                                                                        arrayOrquesta[i].tipo);
+        }
+
+    }
+    return retorno;
 }
