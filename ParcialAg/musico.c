@@ -13,7 +13,7 @@ static int buscarLugarLibre(Musico* arrayMusico,int limiteMusico);
 /** \brief Inicializa la estructura musicos
  * \param array Musico* puntero a array
  * \param limite int limite definido para la estructura musico
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 
@@ -39,7 +39,7 @@ int musico_init(Musico* arrayMusico,int limiteMusico)
  * \param array Musico* puntero al array
  * \param limite int limite definido para musico
  * \param idMusico int ID del musico que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
@@ -70,7 +70,7 @@ int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
  * \param array Musico* puntero al array
  * \param limite int limite definido para el musico
  * \param
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_mostrar(Musico* arrayMusico, int limiteMusico)
@@ -99,7 +99,7 @@ int musico_mostrar(Musico* arrayMusico, int limiteMusico)
  *
  * \param array Musico* puntero al array
  * \param limite int limite definido para Musico
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_alta(Musico* arrayMusico,int limiteMusico)
@@ -117,25 +117,25 @@ int musico_alta(Musico* arrayMusico,int limiteMusico)
         i=buscarLugarLibre(arrayMusico,limiteMusico);
         if(i>=0)
         {
-            if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
+            if(!getValidString("\nIngrese nombre: \n","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
             {
-                if(!getValidString("\nIngrese el apellido: ","\nNo es un apellido","El maximo es de 50",auxApellido,50,2))
+                if(!getValidString("\nIngrese el apellido: \n","\nNo es un apellido","El maximo es de 50",auxApellido,50,2))
                 {
-                    if(!getValidInt("\nIngrese Edad: ","\nDebe tener solo numeros",auxEdad,5,99,2))
+                    if(!getValidInt("\nIngrese Edad: \n","\nDebe tener solo numeros",&auxEdad,5,99,2))
                     {
-                       if(!getValidInt("\nIngrese Id Orquesta: ","\nSolo numeros",auxIdOrquesta,0,6,2))
+                       if(!getValidInt("\nIngrese Id Orquesta: \n","\nSolo numeros",&auxIdOrquesta,0,6,2))
                        {
-                        if(!getValidInt("\nIngrese Id Instrumento: ","\nSolo numeros",auxIdInstrumento,0,6,2))
+                        if(!getValidInt("\nIngrese Id Instrumento: \n","\nSolo numeros",&auxIdInstrumento,0,6,2))
 
                         retorno=0;
                         strcpy(arrayMusico[i].nombre,auxNombre);
                         strcpy(arrayMusico[i].apellido,auxApellido);
-                        strcpy(arrayMusico[i].edad,auxEdad);
-                        strcpy(arrayMusico[i].idOrquesta,auxIdOrquesta);
-                        strcpy(arrayMusico[i].idInstrumento,auxIdInstrumento);
+                        arrayMusico[i].edad=auxEdad;
+                        arrayMusico[i].idOrquesta=auxIdOrquesta;
+                        arrayMusico[i].idInstrumento=auxIdInstrumento;
                         arrayMusico[i].idMusico=proximoId();
                         arrayMusico[i].isEmpty=0;
-                        printf("El IdMusico es: %d\n",arrayMusico[i].idMusico);
+                        printf("\nEl IdMusico es: %d\n",arrayMusico[i].idMusico);
                        }
 
                     }
@@ -160,7 +160,7 @@ int musico_alta(Musico* arrayMusico,int limiteMusico)
  * \param array Musico* puntero al array
  * \param limite int limite definido para musico
  * \param idMusico int Id del musico que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_baja(Musico* arrayMusico,int limiteMusico,int idMusico)
@@ -189,7 +189,7 @@ int musico_baja(Musico* arrayMusico,int limiteMusico,int idMusico)
  * \param array Musico* puntero al array
  * \param limite int limite definido para el musico
  * \param idMusico int Id del musico buscado
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
@@ -206,14 +206,14 @@ int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
         {
             if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==idMusico)
             {
-                if(!getValidInt("\nIngrese edad: ","\nSolo numeros",auxEdad,5,99,2))
+                if(!getValidInt("\nIngrese edad: ","\nSolo numeros",&auxEdad,5,99,2))
                 {
-                    if(!getValidInt("\nIngrese IdOrquesta: ","\nSolo numeros",auxIdOrquesta,0,6,2))
+                    if(!getValidInt("\nIngrese IdOrquesta: ","\nSolo numeros",&auxIdOrquesta,0,6,2))
                     {
 
                             retorno=0;
-                            strcpy(arrayMusico[i].edad,auxEdad);
-                            strcpy(arrayMusico[i].idOrquesta,auxIdOrquesta);
+                            arrayMusico[i].edad=auxEdad;
+                            arrayMusico[i].idOrquesta=auxIdOrquesta;
                             arrayMusico[i].idMusico=proximoId();
                             arrayMusico[i].isEmpty=0;
 
@@ -236,7 +236,7 @@ int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
  *
  * \param array Musico* puntero al array
  * \param limite int limite definido para el musico
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 static int buscarLugarLibre(Musico* arrayMusico,int limiteMusico)
@@ -277,7 +277,7 @@ static int proximoId()
  * \param nombre char* fuerza el nombre
  * \param apellido char* fuerza el apellido
  * \param cuit char* fuerza el cuit
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int musico_altaForzada(Musico* arrayMusico,int limiteMusico,char* nombre,char* apellido,int edad, int idOrquesta,int idInstrumento)
@@ -293,9 +293,9 @@ int musico_altaForzada(Musico* arrayMusico,int limiteMusico,char* nombre,char* a
             retorno=0;
             strcpy(arrayMusico[i].nombre,nombre);
             strcpy(arrayMusico[i].apellido,apellido);
-            strcpy(arrayMusico[i].edad,edad);
-            strcpy(arrayMusico[i].idOrquesta,idOrquesta);
-            strcpy(arrayMusico[i].instrumento,instrumento);
+            arrayMusico[i].edad=edad;
+            arrayMusico[i].idOrquesta=idOrquesta;
+            arrayMusico[i].idInstrumento=idInstrumento;
             arrayMusico[i].idMusico=proximoId();
             arrayMusico[i].isEmpty=0;
         }
@@ -309,7 +309,7 @@ int musico_altaForzada(Musico* arrayMusico,int limiteMusico,char* nombre,char* a
  * \param array Musico* puntero al array
  * \param limite int limite definido para musico
  * \param idMusico int id del musico buscado
- * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id, [-1]si error
  *
  */
 int musico_buscarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)

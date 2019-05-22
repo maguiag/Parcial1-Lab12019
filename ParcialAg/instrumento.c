@@ -14,7 +14,7 @@ static int buscarLugarLibre(Instrumento* arrayInstrumento,int limiteInstrumento)
 /** \brief Inicializa la estructura instrumentos
  * \param array Instrumento* puntero a array
  * \param limite int limite definido para la estructura instrumento
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 
@@ -40,7 +40,7 @@ int instrumento_init(Instrumento* arrayInstrumento,int limiteInstrumento)
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para instrumento
  * \param idInstrumento int ID del instrumento que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_mostrarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,int idInstrumento)
@@ -53,7 +53,7 @@ int instrumento_mostrarPorId(Instrumento* arrayInstrumento,int limiteInstrumento
         for(i=0;i<limiteInstrumento;i++)
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
-            printf("[RELEASE] -ID.INSTRUMENTO: %d -NOMBRE: %s -TIPO: %d %s\n",
+            printf("[RELEASE] -ID.INSTRUMENTO: %d -NOMBRE: %s -TIPO: %d \n",
                                     arrayInstrumento[i].idInstrumento,
                                     arrayInstrumento[i].nombre,
                                     arrayInstrumento[i].tipo);
@@ -66,7 +66,7 @@ int instrumento_mostrarPorId(Instrumento* arrayInstrumento,int limiteInstrumento
  *
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para Instrumento
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_alta(Instrumento* arrayInstrumento,int limiteInstrumento)
@@ -84,14 +84,14 @@ int instrumento_alta(Instrumento* arrayInstrumento,int limiteInstrumento)
             if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
             {
 
-                    if(!getValidInt("\nIngrese tipo: 1.cuerdas 2.viento-madera 3.viento-metal 4.percusion","\nDebe tener solo numeros",auxTipo,0,6,2))
+                    if(!getValidInt("\nIngrese tipo: 1.cuerdas 2.viento-madera 3.viento-metal 4.percusion","\nDebe tener solo numeros",&auxTipo,0,6,2))
                     {
                         retorno=0;
                         strcpy(arrayInstrumento[i].nombre,auxNombre);
-                        strcpy(arrayInstrumento[i].tipo,auxTipo);
+                        arrayInstrumento[i].tipo=auxTipo;
                         arrayInstrumento[i].idInstrumento=proximoId();
                         arrayInstrumento[i].isEmpty=0;
-                        printf("El IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
+                        printf("\nEl IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
                     }
 
             }
@@ -114,7 +114,7 @@ int instrumento_alta(Instrumento* arrayInstrumento,int limiteInstrumento)
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para instrumento
  * \param idInstrumento int Id del instrumento que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_baja(Instrumento* arrayInstrumento,int limiteInstrumento,int idInstrumento)
@@ -142,7 +142,7 @@ int instrumento_baja(Instrumento* arrayInstrumento,int limiteInstrumento,int idI
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para el instrumento
  * \param idInstrumento int Id del instrumento buscado
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento,int idInstrumento)
@@ -150,8 +150,8 @@ int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento
     int retorno=-1;
     int i;
     char auxNombre[51];
-    char auxApellido[51];
-    char auxCuit[12];
+    int auxTipo;
+
 
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
@@ -160,16 +160,16 @@ int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
             {
-                if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
+                if(!getValidString("\nIngrese nombre: \n","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
                 {
-                        if(!getValidInt("\nIngrese tipo: ","\nDebe tener solo numeros",auxTipo,0,6,2))
+                        if(!getValidInt("\nIngrese tipo: \n","\nDebe tener solo numeros",&auxTipo,0,6,2))
                     {
                         retorno=0;
                         strcpy(arrayInstrumento[i].nombre,auxNombre);
-                        strcpy(arrayInstrumento[i].tipo,auxTipo);
+                        arrayInstrumento[i].tipo=auxTipo;
                         arrayInstrumento[i].idInstrumento=proximoId();
                         arrayInstrumento[i].isEmpty=0;
-                        printf("El IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
+                        printf("\nEl IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
                     }
 
                 }
@@ -190,7 +190,7 @@ int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para el instrumento
  * \param orden int [1] de menor a mayor, [0] de mayor a menor
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_ordenar(Instrumento* arrayInstrumento,int limiteInstrumento,int orden)
@@ -227,7 +227,7 @@ int instrumento_ordenar(Instrumento* arrayInstrumento,int limiteInstrumento,int 
  *
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para el instrumento
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 static int buscarLugarLibre(Instrumento* arrayInstrumento,int limiteInstrumento)
@@ -268,7 +268,7 @@ static int proximoId()
  * \param nombre char* fuerza el nombre
  * \param apellido char* fuerza el apellido
  * \param cuit char* fuerza el cuit
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_altaForzada(Instrumento* arrayInstrumento,int limiteInstrumento,char* nombre,int tipo)
@@ -283,7 +283,7 @@ int instrumento_altaForzada(Instrumento* arrayInstrumento,int limiteInstrumento,
         {
             retorno=0;
             strcpy(arrayInstrumento[i].nombre,nombre);
-            strcpy(arrayInstrumento[i].tipo,tipo);
+            arrayInstrumento[i].tipo=tipo;
             arrayInstrumento[i].idInstrumento=proximoId();
             arrayInstrumento[i].isEmpty=0;
         }
@@ -297,7 +297,7 @@ int instrumento_altaForzada(Instrumento* arrayInstrumento,int limiteInstrumento,
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para instrumento
  * \param idInstrumento int id del instrumento buscado
- * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id, [-1] si error
  *
  */
 int instrumento_buscarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,int idInstrumento)
@@ -325,24 +325,43 @@ int instrumento_buscarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para el instrumento
  * \param
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int instrumento_mostrar(Instrumento* arrayInstrumento, int limiteInstrumento)
 {
     int retorno=-1;
     int i;
+    int tipo;
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno=0;
         for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty)//==0
-            printf("[RELEASE] -ID.Instrumento: %d -NOMBRE: %s -TIPO: %d \n",
+               {
+                    tipo=arrayInstrumento[i].tipo;
+                    switch(tipo)
+                    {
+                        printf("[RELEASE] -ID.Instrumento: %d -NOMBRE: %s -TIPO: %d \n",
                                     arrayInstrumento[i].idInstrumento,
                                     arrayInstrumento[i].nombre,
                                     arrayInstrumento[i].tipo);
+                                case 1:
+                                    printf("Cuerdas ");
+                                    break;
+                                case 2:
+                                    printf("Viento-madera");
+                                    break;
+                                case 3:
+                                    printf("Viento-metal");
+                                    break;
+                                case 4:
+                                    printf("Percusion");
+                                    break;
+                    }
+               }
         }
-        return retorno;
-    }
+}
+     return retorno;
 }

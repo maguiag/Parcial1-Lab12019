@@ -1,19 +1,125 @@
 # depslib dependency file v1.0
-1557956229 source:/home/alumno/Escritorio/ParcialAg/main.c
+1558452279 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+
+1558452279 to.h"
+
+1558222664 c:\users\user\downloads\parcial1-lab12019-master\parcialag\musico.h
+
+1558297552 c:\users\user\downloads\parcial1-lab12019-master\parcialag\orquesta.h
+	"musico.h"
+	"instrumento.h"
+
+1558221390 c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.h
+
+1558222963 c:\users\user\downloads\parcial1-lab12019-master\parcialag\utn.h
+
+1558237847 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+	"informes.h"
+
+1558452279 h"
+
+1558538734 c:\users\user\downloads\parcial1-lab12019-master\parcialag\informes.h
+
+1558054365 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<string.h>
 	"utn.h"
 
-1557956074 /home/alumno/Escritorio/ParcialAg/utn.h
+1558054365 
 
-1557956074 source:/home/alumno/Escritorio/ParcialAg/utn.c
+1558452279 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"utn.h"
+
+1558452279 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"utn.h"
+
+1558452280 source:/home/alumno/Escritorio/ParcialAg/instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+
+1558222666 /home/alumno/Escritorio/ParcialAg/musico.h
+
+1558297554 /home/alumno/Escritorio/ParcialAg/orquesta.h
+	"musico.h"
+	"instrumento.h"
+
+1558221392 /home/alumno/Escritorio/ParcialAg/instrumento.h
+
+1558222964 /home/alumno/Escritorio/ParcialAg/utn.h
+
+1558237848 source:/home/alumno/Escritorio/ParcialAg/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+	"informes.h"
+
+1558538736 /home/alumno/Escritorio/ParcialAg/informes.h
+
+1558452280 source:/home/alumno/Escritorio/ParcialAg/musico.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"utn.h"
+
+1558452280 source:/home/alumno/Escritorio/ParcialAg/orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"utn.h"
+
+1558054366 source:/home/alumno/Escritorio/ParcialAg/utn.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<string.h>
 	"utn.h"
-
-1558045832 source:/home/alumno/Escritorio/ParcialAg/musico.c
 

@@ -1,9 +1,6 @@
 #ifndef UTN_H_INCLUDED
 #define UTN_H_INCLUDED
 
-
-
-#endif // UTN_H_INCLUDED
 int getInt(char* mensaje);
 float getFloat(char* mensaje);
 char getChar(char* mensaje);
@@ -30,3 +27,6 @@ int getValidFloat(char requestMessage[],char errorMessage[], float* input,float 
 void clearStdin(void);
 void pause(void);
 void clearScreen(void);
+
+
+#endif // UTN_H_INCLUDED

@@ -1,13 +1,15 @@
 #ifndef INSTRUMENTO_H_INCLUDED
 #define INSTRUMENTO_H_INCLUDED
-
 typedef struct
 {
+
     char nombre[51];
     int tipo;
     int idInstrumento;
     int isEmpty;
+
 }Instrumento;
+
 
 int instrumento_init(Instrumento* arrayInstrumento,int limiteInstrumento);
 int instrumento_mostrar(Instrumento* arrayInstrumento, int limiteInstrumento);

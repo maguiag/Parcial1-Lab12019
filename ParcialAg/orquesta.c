@@ -4,6 +4,7 @@
 #include <string.h>
 #include "orquesta.h"
 #include "musico.h"
+#include "instrumento.h"
 #include "utn.h"
 
 static int proximoId();
@@ -13,7 +14,7 @@ static int buscarLugarLibre(Orquesta* arrayOrquesta,int limiteOrquesta);
 /** \brief Inicializa la estructura orquestas
  * \param array Orquesta* puntero a array
  * \param limite int limite definido para la estructura orquesta
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 
@@ -38,7 +39,7 @@ int orquesta_init(Orquesta* arrayOrquesta,int limiteOrquesta)
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para orquesta
  * \param idOrquesta int ID del orquesta que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int orquesta_mostrarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrquesta)
@@ -65,7 +66,7 @@ int orquesta_mostrarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrque
  *
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para Orquesta
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
@@ -81,19 +82,19 @@ int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
         i=buscarLugarLibre(arrayOrquesta,limiteOrquesta);
         if(i>=0)
         {
-            if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
+            if(!getValidString("\nIngrese nombre: \n","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
             {
-                if(!getValidString("\nIngrese el lugar: ","\nNo es un lugar","El maximo es de 50",auxLugar,50,2))
+                if(!getValidString("\nIngrese el lugar: \n","\nNo es un lugar","El maximo es de 50",auxLugar,50,2))
                 {
-                    if(!getValidInt("\nIngrese tipo de orquesta: 1.sinfonica 2.filarmonica 3.camara ","\nDebe tener solo numeros",auxTipo,0,5,2))
+                    if(!getValidInt("\nIngrese tipo de orquesta: 1.sinfonica 2.filarmonica 3.camara \n ","\nDebe tener solo numeros",&auxTipo,0,5,2))
                     {
                         retorno=0;
                         strcpy(arrayOrquesta[i].nombre,auxNombre);
                         strcpy(arrayOrquesta[i].lugar,auxLugar);
-                        strcpy(arrayOrquesta[i].tipo,auxTipo);
+                        arrayOrquesta[i].tipo=auxTipo;
                         arrayOrquesta[i].idOrquesta=proximoId();
                         arrayOrquesta[i].isEmpty=0;
-                        printf("El IdOrquesta es: %d\n",arrayOrquesta[i].idOrquesta);
+                        printf("\nEl IdOrquesta es: %d\n",arrayOrquesta[i].idOrquesta);
                     }
                 }
             }
@@ -116,7 +117,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
  * \param array Orquesta* , MUsico*
  * \param limite int limite definido para orquesta y musico
  * \param idOrquesta int Id del orquesta que estoy buscando
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrquesta, Musico* arrayMusico, int limiteMusico)
@@ -125,7 +126,7 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
     int i;
     int opcion;
 
-    getValidInt("\nDesea Eliminar Orquesta y musicos vinculados? (1.si/2.no)","\no Valido",&opcion,0,1,2)
+    getValidInt("\nDesea Eliminar Orquesta y musicos vinculados? (1.si/2.no)\n","\no Valido",&opcion,0,1,2);
     if(opcion==1)
     {
 
@@ -147,7 +148,7 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
         for(i=0; i<limiteMusico;i++)
         {
             retorno=-2;
-            if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==id)
+            if(!arrayMusico[i].isEmpty && arrayMusico[i].idOrquesta==idOrquesta)
             {
                 arrayMusico[i].isEmpty=1;
                 retorno=0;
@@ -165,7 +166,7 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para el orquesta
  * \param
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int orquesta_mostrar(Orquesta* arrayOrquesta, int limiteOrquesta)
@@ -183,8 +184,9 @@ int orquesta_mostrar(Orquesta* arrayOrquesta, int limiteOrquesta)
                                                                                         arrayOrquesta[i].lugar,
                                                                                         arrayOrquesta[i].tipo);
         }
-        return retorno;
+
     }
+    return retorno;
 }
 
 
@@ -192,7 +194,7 @@ int orquesta_mostrar(Orquesta* arrayOrquesta, int limiteOrquesta)
  *
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para el orquesta
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 static int buscarLugarLibre(Orquesta* arrayOrquesta,int limiteOrquesta)
@@ -226,6 +228,45 @@ static int proximoId()
     return proximoId;
 }
 
+
+/** \brief Ordena Orquesta de menor a mayo o de mayor a menor segun el "orden"
+ *
+ * \param array Orquesta* puntero al array
+ * \param limite int limite definido para orquesta
+ * \param orden int [1] de menor a mayor, [0] de mayor a menor
+ * \return int [0] OK [-1] ERROR
+ *
+ */
+int orquesta_ordenar(Orquesta* arrayOrquesta,int limiteOrquesta,int orden)
+{
+    int retorno=-1;
+    int i;
+    int flagSwap;
+    Orquesta auxiliarEstructura;
+
+    if(limiteOrquesta>0 && arrayOrquesta!=NULL)
+    {
+        do
+        {
+            flagSwap=0;
+            for(i=0;i<limiteOrquesta-1;i++)
+            {
+                if(!arrayOrquesta[i].isEmpty && !arrayOrquesta[i+1].isEmpty)
+                {
+                    if((strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)>0 && orden) || (strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)<0 && !orden)) //******
+                    {
+                        auxiliarEstructura=arrayOrquesta[i];
+                        arrayOrquesta[i]=arrayOrquesta[i+1];
+                        arrayOrquesta[i+1]=auxiliarEstructura;
+                        flagSwap=1;
+                    }
+                }
+            }
+        }while(flagSwap);
+    }
+    return retorno;
+}
+
 /** \brief Fuerza el alta de orquesta
  *
  * \param array Orquesta* puntero al array
@@ -233,7 +274,7 @@ static int proximoId()
  * \param nombre char* fuerza el nombre
  * \param apellido char* fuerza el apellido
  * \param cuit char* fuerza el cuit
- * \return int [0] OK [1] ERROR
+ * \return int [0] OK [-1] ERROR
  *
  */
 int orquesta_altaForzada(Orquesta* arrayOrquesta,int limiteOrquesta,char* nombre,char* lugar,int tipo)
@@ -249,7 +290,7 @@ int orquesta_altaForzada(Orquesta* arrayOrquesta,int limiteOrquesta,char* nombre
             retorno=0;
             strcpy(arrayOrquesta[i].nombre,nombre);
             strcpy(arrayOrquesta[i].lugar,lugar);
-            strcpy(arrayOrquesta[i].tipo,tipo);
+            arrayOrquesta[i].tipo=tipo;
             arrayOrquesta[i].idOrquesta=proximoId();
             arrayOrquesta[i].isEmpty=0;
         }
@@ -263,7 +304,7 @@ int orquesta_altaForzada(Orquesta* arrayOrquesta,int limiteOrquesta,char* nombre
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para orquesta
  * \param idOrquesta int id del orquesta buscado
- * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id, [-1] si error
  *
  */
 int orquesta_buscarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrquesta)
