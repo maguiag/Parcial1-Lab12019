@@ -6,7 +6,6 @@
 #include "musico.h"
 #include "orquesta.h"
 #include "utn.h"
-
 static int proximoId();
 static int buscarLugarLibre(Musico* arrayMusico,int limiteMusico);
 
@@ -25,7 +24,7 @@ int musico_init(Musico* arrayMusico,int limiteMusico)
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             arrayMusico[i].isEmpty=1;
         }
@@ -50,16 +49,16 @@ int musico_mostrarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==idMusico)
-            printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
-                                    arrayMusico[i].idMusico,
-                                    arrayMusico[i].nombre,
-                                    arrayMusico[i].apellido,
-                                    arrayMusico[i].edad,
-                                    arrayMusico[i].idOrquesta,
-                                    arrayMusico[i].idInstrumento);
+                printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
+                       arrayMusico[i].idMusico,
+                       arrayMusico[i].nombre,
+                       arrayMusico[i].apellido,
+                       arrayMusico[i].edad,
+                       arrayMusico[i].idOrquesta,
+                       arrayMusico[i].idInstrumento);
         }
     }
     return retorno;
@@ -84,13 +83,13 @@ int musico_mostrar(Musico* arrayMusico, int limiteMusico)
         for(i=0; i<limiteMusico; i++)
         {
             if(!arrayMusico[i].isEmpty)//==0
-            printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
-                                    arrayMusico[i].idMusico,
-                                    arrayMusico[i].nombre,
-                                    arrayMusico[i].apellido,
-                                    arrayMusico[i].edad,
-                                    arrayMusico[i].idOrquesta,
-                                    arrayMusico[i].idInstrumento);
+                printf("[RELEASE] -ID: %d -NOMBRE: %s -APELLIDO: %s -EDAD: %d -IdOrquesta: %d -idInstrumento\n",
+                       arrayMusico[i].idMusico,
+                       arrayMusico[i].nombre,
+                       arrayMusico[i].apellido,
+                       arrayMusico[i].edad,
+                       arrayMusico[i].idOrquesta,
+                       arrayMusico[i].idInstrumento);
         }
         return retorno;
     }
@@ -124,20 +123,20 @@ int musico_alta(Musico* arrayMusico,int limiteMusico)
                 {
                     if(!getValidInt("\nIngrese Edad: \n","\nDebe tener solo numeros",&auxEdad,5,99,2))
                     {
-                       if(!getValidInt("\nIngrese Id Orquesta: \n","\nSolo numeros",&auxIdOrquesta,0,6,2))
-                       {
-                        if(!getValidInt("\nIngrese Id Instrumento: \n","\nSolo numeros",&auxIdInstrumento,0,6,2))
+                        if(!getValidInt("\nIngrese Id Orquesta: \n","\nSolo numeros",&auxIdOrquesta,0,6,2))
+                        {
+                            if(!getValidInt("\nIngrese Id Instrumento: \n","\nSolo numeros",&auxIdInstrumento,0,6,2))
 
-                        retorno=0;
-                        strcpy(arrayMusico[i].nombre,auxNombre);
-                        strcpy(arrayMusico[i].apellido,auxApellido);
-                        arrayMusico[i].edad=auxEdad;
-                        arrayMusico[i].idOrquesta=auxIdOrquesta;
-                        arrayMusico[i].idInstrumento=auxIdInstrumento;
-                        arrayMusico[i].idMusico=proximoId();
-                        arrayMusico[i].isEmpty=0;
-                        printf("\nEl IdMusico es: %d\n",arrayMusico[i].idMusico);
-                       }
+                                retorno=0;
+                            strcpy(arrayMusico[i].nombre,auxNombre);
+                            strcpy(arrayMusico[i].apellido,auxApellido);
+                            arrayMusico[i].edad=auxEdad;
+                            arrayMusico[i].idOrquesta=auxIdOrquesta;
+                            arrayMusico[i].idInstrumento=auxIdInstrumento;
+                            arrayMusico[i].idMusico=proximoId();
+                            arrayMusico[i].isEmpty=0;
+                            printf("\nEl IdMusico es: %d\n",arrayMusico[i].idMusico);
+                        }
 
                     }
                 }
@@ -172,7 +171,7 @@ int musico_baja(Musico* arrayMusico,int limiteMusico,int idMusico)
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno = -2;
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==idMusico)
             {
@@ -203,7 +202,7 @@ int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno=-2;
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==idMusico)
             {
@@ -212,11 +211,11 @@ int musico_modificacion(Musico* arrayMusico,int limiteMusico,int idMusico)
                     if(!getValidInt("\nIngrese IdOrquesta: ","\nSolo numeros",&auxIdOrquesta,0,6,2))
                     {
 
-                            retorno=0;
-                            arrayMusico[i].edad=auxEdad;
-                            arrayMusico[i].idOrquesta=auxIdOrquesta;
-                            arrayMusico[i].idMusico=proximoId();
-                            arrayMusico[i].isEmpty=0;
+                        retorno=0;
+                        arrayMusico[i].edad=auxEdad;
+                        arrayMusico[i].idOrquesta=auxIdOrquesta;
+                        arrayMusico[i].idMusico=proximoId();
+                        arrayMusico[i].isEmpty=0;
 
                     }
                 }
@@ -246,7 +245,7 @@ static int buscarLugarLibre(Musico* arrayMusico,int limiteMusico)
     int i;
     if(limiteMusico> 0 && arrayMusico!=NULL)
     {
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(arrayMusico[i].isEmpty==1)
             {
@@ -281,7 +280,8 @@ static int proximoId()
  * \return int [0] OK [-1] ERROR
  *
  */
-int musico_altaForzada(Musico* arrayMusico,int limiteMusico,char* nombre,char* apellido,int edad, int idOrquesta,int idInstrumento)
+int musico_altaForzada(Musico* arrayMusico,int limiteMusico,char* nombre,char* apellido,int edad,
+                       int idOrquesta,int idInstrumento)
 {
     int retorno=-1;
     int i;
@@ -320,7 +320,7 @@ int musico_buscarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
     if(limiteMusico>0 && arrayMusico!=NULL)
     {
         retorno=-2;
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(!arrayMusico[i].isEmpty && arrayMusico[i].idMusico==idMusico)
             {
@@ -349,17 +349,17 @@ int musico_mostrarPorOrquesta(Musico* arrayMusico,int limiteMusico, int id)
     if(arrayMusico!=NULL && limiteMusico>0)
     {
         printf("\nListar\n");
-        for(i=0;i<limiteMusico;i++)
+        for(i=0; i<limiteMusico; i++)
         {
             if(arrayMusico[i].idOrquesta==id)
             {
                 retorno=0;
                 auxMusico=arrayMusico[i];
                 printf("\nId: %d - Nombre: %s - Apellido: %s - Edad: %d - IdOrquesta: %d \n",auxMusico.idMusico,
-                                                                                            auxMusico.nombre,
-                                                                                            auxMusico.apellido,
-                                                                                            auxMusico.edad,
-                                                                                            auxMusico.idOrquesta);
+                       auxMusico.nombre,
+                       auxMusico.apellido,
+                       auxMusico.edad,
+                       auxMusico.idOrquesta);
             }
         }
     }
@@ -382,27 +382,28 @@ int musico_ordenarApellido(Musico* arrayMusico,int limiteMusico,int orden)
 
     Musico auxEstructura;
     if(arrayMusico!=NULL && limiteMusico>0)
-   {
-     do
     {
-        flag=0;
-        for(i=0;i<limiteMusico-1;i++)
+        do
         {
-            if(!arrayMusico[i].isEmpty && !arrayMusico[i+1].isEmpty)
+            flag=0;
+            for(i=0; i<limiteMusico-1; i++)
             {
-
-                if((strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)>0 && orden) ||
-                    (strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)<0 && !orden))
+                if(!arrayMusico[i].isEmpty && !arrayMusico[i+1].isEmpty)
                 {
-                    auxEstructura=arrayMusico[i];
-                    arrayMusico[i]=arrayMusico[i+1];
-                    arrayMusico[i+1]=auxEstructura;
-                    flag=1;
+
+                    if((strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)>0 && orden) ||
+                            (strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)<0 && !orden))
+                    {
+                        auxEstructura=arrayMusico[i];
+                        arrayMusico[i]=arrayMusico[i+1];
+                        arrayMusico[i+1]=auxEstructura;
+                        flag=1;
+                    }
                 }
             }
         }
-    }while(flag);
+        while(flag);
 
     }
-     return retorno;
+    return retorno;
 }

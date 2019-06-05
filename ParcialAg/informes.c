@@ -12,9 +12,9 @@
 
 /** \brief contador de orquestas
  *
- * \param puntero a orquesta, limite del array
+ * \param puntero a orquesta, limite definido para orquesta
  * \param idOrquesta a buscar
- * \return contador
+ * \return cuantas orquestas hay
  *
  */
 
@@ -39,9 +39,9 @@ int contadorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta)
 
 /** \brief cunta musicos segun idOrquesta
  *
- * \param pauntero a orquesta,
- * \param limite del array
- * \return contador
+ * \param pauntero a orquesta
+ * \param limite definido para el array
+ * \return cuantos musicos segun idOrquesta
  *
  */
 
@@ -67,9 +67,9 @@ int contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico,int idOrques
 
 /** \brief contador de orquestas segun tipo
  *
- * \param puntero a orquesta, limite del array
- * \param tipo de orquesta a contar
- * \return contador
+ * \param puntero a orquesta, limite definido para el array
+ * \param tipo - tipo de orquesta a contar
+ * \return cuantas orquestas segun tipo
  *
  */
 
@@ -95,9 +95,9 @@ int contador_orquestaByTipo(Orquesta* arrayOrquesta,int limiteOrquesta,int tipo)
 
 /** \brief cuneta intrumentos segun el tipo
  *
- * \param puntero a instrumento, limite del array
- * \param tipo de instrumento a contar
- * \return contador
+ * \param puntero a instrumento, limite definido para el  array
+ * \param tipo - tipo de instrumento a contar
+ * \return cuantos instrumentos segun tipo
  *
  */
 
@@ -122,9 +122,9 @@ int contador_instrumentosByTipo(Instrumento* arrayInstrumento,int limiteInstrume
 
 /** \brief cuenta la cantidad de musicos
  *
- * \param puntero  musico
- * \param limite del array musico
- * \return contador
+ * \param puntero   a  musico
+ * \param limite definido del array musico
+ * \return cuantos musicos hay
  *
  */
 
@@ -150,8 +150,8 @@ int contador_musicos(Musico* arrayMusico, int limiteMusico)
 
 /** \brief Informa la orquesta con mas musicos
  *
- * \param puntero a orquesta, limite del array orquesta
- * \param puntero a musico, limite del array musico
+ * \param puntero a orquesta, limite definido para el array orquesta
+ * \param puntero a musico, limite definido para el  array musico
  * \return [0] si ok, [-1] si error
  *
  */
@@ -194,17 +194,13 @@ int informe_OrquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta,
         orquesta_mostrarPorId(arrayOrquesta,limiteOrquesta,IndiceOrquesta);
         printf("Tiene %d musicos\n",masMusicos);
     }
-return retorno;
+    return retorno;
 }
-
-
-
-
 
 /** \brief Informa musicos de mas de 30 años
  *
  * \param puntero a musico
- * \param limite del array musico
+ * \param limite  definido para el array musico
  * \return [0] si ok, [-1] si error
  *
  */
@@ -236,8 +232,8 @@ int informar_musicosEdadMasTreinta(Musico* arrayMusico, int limiteMusico)
 
 /** \brief Informa las orquesta segun por lugar
  *
- * \param puntero a orquesta, limite  del array orquesta
- * \param puntero al lugar
+ * \param puntero a orquesta, limite  definido para el array orquesta
+ * \param puntero al lugar - lo ingresa el usuario
  * \return [0] si ok, [-1] si error
  *
  */
@@ -269,8 +265,8 @@ int informar_orquestaByLugar(Orquesta* arrayOrquesta, int limiteOrquesta, char* 
 
 /** \brief informa las orquestas con mas de 5 musicos
  *
- * \param puntero a musico, limite del array musico
- * \param puntero a orquesta, limite del array orquesta
+ * \param puntero a musico, limite definido para array musico
+ * \param puntero a orquesta, limite deefinido para array orquesta
  * \return [0] si ok, [-1] si error
  *
  */
@@ -307,14 +303,14 @@ int informar_orquestaMasCinco(Musico* arrayMusico, int limiteMusico,
 /** \brief informas las orquestas completas
  *
  * \param puntero a orquesta, puntero a musico, puntero a instrumanto
- * \param limite del array orquesta, limite del array musico, limite del array instrumento
+ * \param limite definido para array orquesta, limite deefinido para array musico, limite definido para array instrumento
  * \return [0] si ok, [-1] si error
  *
  */
 
 int informar_orquestaCompleta(Orquesta* arrayOrquesta,int limiteOrquesta,
-                             Musico* arrayMusico,int limiteMusico,
-                             Instrumento* arrayInstrumento,int limiteInstrumento)
+                              Musico* arrayMusico,int limiteMusico,
+                              Instrumento* arrayInstrumento,int limiteInstrumento)
 {
     int retorno=-1;
     int cuerda=0;
@@ -366,8 +362,8 @@ int informar_orquestaCompleta(Orquesta* arrayOrquesta,int limiteOrquesta,
 
 /** \brief Informa promedio de musicos
  *
- * \param puntero a orquesta, limite del array orquesta
- * \param puntero a musico, limite del array Musico
+ * \param puntero a orquesta, limite definido para array orquesta
+ * \param puntero a musico, limite definido para array Musico
  * \return [0] si ok, [-1] si error
  *
  */
@@ -400,8 +396,8 @@ int informar_promedioMusicos(Orquesta* arrayOrquesta,int limiteOrquesta,
 
 /** \brief Informa musicos segun orquesta
  *
- * \param puntero a orquesta, limite del array orquesta
- * \param puntero a musico, limite del array musico
+ * \param puntero a orquesta, limite definido para array orquesta
+ * \param puntero a musico, limite deefinido para array musico
  * \param id de la orquesta a buscar
  * \return [0] si ok, [-1] si error
  *
@@ -423,8 +419,8 @@ int informar_musicosPorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta,
 
 /** \brief Informa musicos con instrumentos de cuerda
  *
- * \param puntero a musico, limite del array musico
- * \param puntero a instrumento, limite del array instrumento
+ * \param puntero a musico, limite deefinido para array musico
+ * \param puntero a instrumento, limite definido para array instrumento
  * \return [0] si ok, [-1] si error
  *
  */

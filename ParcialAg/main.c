@@ -46,10 +46,10 @@ int main()
 
     do
     {
-     getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar Musico\n6.Eliminar musico\n7.Imprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.Orquesta +5\n11.Musicos +30\n12.Orquesta por lugar\n13.Orquesta completa\n14.Musicos xOrquesta\n16.Orquesta +Musicos\n16.Musicos cuerda\n17.Promedio\n18.SALIR\n",
-         "\nERROR",&opcion,1,20,3);
-    switch(opcion)
-    {
+        getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar Musico\n6.Eliminar musico\n7.Imprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.Orquesta +5\n11.Musicos +30\n12.Orquesta por lugar\n13.Orquesta completa\n14.Musicos xOrquesta\n16.Orquesta +Musicos\n16.Musicos cuerda\n17.Promedio\n18.SALIR\n",
+                    "\nERROR",&opcion,1,20,3);
+        switch(opcion)
+        {
         case 1:
             orquesta_alta(orquesta,CANT_ORQ);
             break;
@@ -95,9 +95,9 @@ int main()
                 informar_orquestaByLugar(orquesta,CANT_ORQ,lugar);
             }
             else
-                {
-                    printf("\nError");
-                }
+            {
+                printf("\nError");
+            }
             break;
         case 13:
             informar_orquestaCompleta(orquesta,CANT_ORQ,musico,CANT_MUSICOS,instrumento,CANT_INSTR);
@@ -118,8 +118,9 @@ int main()
         case 17:
             informar_promedioMusicos(orquesta,CANT_ORQ,musico,CANT_MUSICOS);
             break;
+        }
     }
-    }while(opcion!=19);
+    while(opcion!=19);
 
     return 0;
 }

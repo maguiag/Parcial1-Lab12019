@@ -26,7 +26,7 @@ int orquesta_init(Orquesta* arrayOrquesta,int limiteOrquesta)
     if(limiteOrquesta>0 && arrayOrquesta!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteOrquesta;i++)
+        for(i=0; i<limiteOrquesta; i++)
         {
             arrayOrquesta[i].isEmpty=1;
         }
@@ -50,14 +50,14 @@ int orquesta_mostrarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrque
     if(limiteOrquesta>0 && arrayOrquesta!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteOrquesta;i++)
+        for(i=0; i<limiteOrquesta; i++)
         {
             if(!arrayOrquesta[i].isEmpty && arrayOrquesta[i].idOrquesta==idOrquesta)
-            printf("[RELEASE] -ID: %d -NOMBRE: %s -LUGAR: %s -TIPO: %d\n",
-                                                        arrayOrquesta[i].idOrquesta,
-                                                        arrayOrquesta[i].nombre,
-                                                        arrayOrquesta[i].lugar,
-                                                        arrayOrquesta[i].tipo);
+                printf("[RELEASE] -ID: %d -NOMBRE: %s -LUGAR: %s -TIPO: %d\n",
+                       arrayOrquesta[i].idOrquesta,
+                       arrayOrquesta[i].nombre,
+                       arrayOrquesta[i].lugar,
+                       arrayOrquesta[i].tipo);
         }
     }
     return retorno;
@@ -131,31 +131,31 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
     if(opcion==1)
     {
 
-    if(limiteOrquesta>0 && arrayOrquesta!=NULL)
-    {
-        retorno = -2;
-        for(i=0;i<limiteOrquesta;i++)
+        if(limiteOrquesta>0 && arrayOrquesta!=NULL)
         {
-            if(!arrayOrquesta[i].isEmpty && arrayOrquesta[i].idOrquesta==idOrquesta)
+            retorno = -2;
+            for(i=0; i<limiteOrquesta; i++)
             {
-                arrayOrquesta[i].isEmpty=1;
-                retorno=0;
-                break;
+                if(!arrayOrquesta[i].isEmpty && arrayOrquesta[i].idOrquesta==idOrquesta)
+                {
+                    arrayOrquesta[i].isEmpty=1;
+                    retorno=0;
+                    break;
+                }
             }
         }
-    }
-    if(limiteMusico>0 && arrayMusico!=NULL)
-    {
-        for(i=0; i<limiteMusico;i++)
+        if(limiteMusico>0 && arrayMusico!=NULL)
         {
-            retorno=-2;
-            if(!arrayMusico[i].isEmpty && arrayMusico[i].idOrquesta==idOrquesta)
+            for(i=0; i<limiteMusico; i++)
             {
-                arrayMusico[i].isEmpty=1;
-                retorno=0;
+                retorno=-2;
+                if(!arrayMusico[i].isEmpty && arrayMusico[i].idOrquesta==idOrquesta)
+                {
+                    arrayMusico[i].isEmpty=1;
+                    retorno=0;
+                }
             }
         }
-    }
     }
 
 
@@ -180,10 +180,10 @@ int orquesta_mostrar(Orquesta* arrayOrquesta, int limiteOrquesta)
         for(i=0; i<limiteOrquesta; i++)
         {
             if(!arrayOrquesta[i].isEmpty)//==0
-            printf("[RELEASE] - ID Orquesta: %d - Nombre: %s - Lugar: %s - Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
-                                                                                        arrayOrquesta[i].nombre,
-                                                                                        arrayOrquesta[i].lugar,
-                                                                                        arrayOrquesta[i].tipo);
+                printf("[RELEASE] - ID Orquesta: %d - Nombre: %s - Lugar: %s - Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
+                       arrayOrquesta[i].nombre,
+                       arrayOrquesta[i].lugar,
+                       arrayOrquesta[i].tipo);
         }
 
     }
@@ -204,7 +204,7 @@ static int buscarLugarLibre(Orquesta* arrayOrquesta,int limiteOrquesta)
     int i;
     if(limiteOrquesta> 0 && arrayOrquesta!=NULL)
     {
-        for(i=0;i<limiteOrquesta;i++)
+        for(i=0; i<limiteOrquesta; i++)
         {
             if(arrayOrquesta[i].isEmpty==1)
             {
@@ -250,11 +250,12 @@ int orquesta_ordenar(Orquesta* arrayOrquesta,int limiteOrquesta,int orden)
         do
         {
             flagSwap=0;
-            for(i=0;i<limiteOrquesta-1;i++)
+            for(i=0; i<limiteOrquesta-1; i++)
             {
                 if(!arrayOrquesta[i].isEmpty && !arrayOrquesta[i+1].isEmpty)
                 {
-                    if((strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)>0 && orden) || (strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)<0 && !orden)) //******
+                    if((strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)>0 && orden) ||
+                        (strcmp(arrayOrquesta[i].nombre,arrayOrquesta[i+1].nombre)<0 && !orden)) //******
                     {
                         auxiliarEstructura=arrayOrquesta[i];
                         arrayOrquesta[i]=arrayOrquesta[i+1];
@@ -263,7 +264,8 @@ int orquesta_ordenar(Orquesta* arrayOrquesta,int limiteOrquesta,int orden)
                     }
                 }
             }
-        }while(flagSwap);
+        }
+        while(flagSwap);
     }
     return retorno;
 }
@@ -315,7 +317,7 @@ int orquesta_buscarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
     if(limiteOrquesta>0 && arrayOrquesta!=NULL)
     {
         retorno=-2;
-        for(i=0;i<limiteOrquesta;i++)
+        for(i=0; i<limiteOrquesta; i++)
         {
             if(!arrayOrquesta[i].isEmpty && arrayOrquesta[i].idOrquesta==idOrquesta)
             {

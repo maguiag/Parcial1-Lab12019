@@ -26,7 +26,7 @@ int instrumento_init(Instrumento* arrayInstrumento,int limiteInstrumento)
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             arrayInstrumento[i].isEmpty=1;
         }
@@ -51,13 +51,13 @@ int instrumento_mostrarPorId(Instrumento* arrayInstrumento,int limiteInstrumento
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno=0;
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
-            printf("[RELEASE] -ID.INSTRUMENTO: %d -NOMBRE: %s -TIPO: %d \n",
-                                    arrayInstrumento[i].idInstrumento,
-                                    arrayInstrumento[i].nombre,
-                                    arrayInstrumento[i].tipo);
+                printf("[RELEASE] -ID.INSTRUMENTO: %d -NOMBRE: %s -TIPO: %d \n",
+                       arrayInstrumento[i].idInstrumento,
+                       arrayInstrumento[i].nombre,
+                       arrayInstrumento[i].tipo);
         }
     }
     return retorno;
@@ -85,15 +85,15 @@ int instrumento_alta(Instrumento* arrayInstrumento,int limiteInstrumento)
             if(!getValidString("\nIngrese nombre: ","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
             {
 
-                    if(!getValidInt("\nIngrese tipo: 1.cuerdas 2.viento-madera 3.viento-metal 4.percusion","\nDebe tener solo numeros",&auxTipo,0,6,2))
-                    {
-                        retorno=0;
-                        strcpy(arrayInstrumento[i].nombre,auxNombre);
-                        arrayInstrumento[i].tipo=auxTipo;
-                        arrayInstrumento[i].idInstrumento=proximoId();
-                        arrayInstrumento[i].isEmpty=0;
-                        printf("\nEl IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
-                    }
+                if(!getValidInt("\nIngrese tipo: 1.cuerdas 2.viento-madera 3.viento-metal 4.percusion","\nDebe tener solo numeros",&auxTipo,0,6,2))
+                {
+                    retorno=0;
+                    strcpy(arrayInstrumento[i].nombre,auxNombre);
+                    arrayInstrumento[i].tipo=auxTipo;
+                    arrayInstrumento[i].idInstrumento=proximoId();
+                    arrayInstrumento[i].isEmpty=0;
+                    printf("\nEl IdInstrumento es: %d\n",arrayInstrumento[i].idInstrumento);
+                }
 
             }
             else
@@ -125,7 +125,7 @@ int instrumento_baja(Instrumento* arrayInstrumento,int limiteInstrumento,int idI
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno = -2;
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
             {
@@ -157,13 +157,13 @@ int instrumento_modificacion(Instrumento* arrayInstrumento,int limiteInstrumento
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno=-2;
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
             {
                 if(!getValidString("\nIngrese nombre: \n","\nNo es un nombre","El maximo es 50",auxNombre,50,2))
                 {
-                        if(!getValidInt("\nIngrese tipo: \n","\nDebe tener solo numeros",&auxTipo,0,6,2))
+                    if(!getValidInt("\nIngrese tipo: \n","\nDebe tener solo numeros",&auxTipo,0,6,2))
                     {
                         retorno=0;
                         strcpy(arrayInstrumento[i].nombre,auxNombre);
@@ -206,7 +206,7 @@ int instrumento_ordenar(Instrumento* arrayInstrumento,int limiteInstrumento,int 
         do
         {
             flagSwap=0;
-            for(i=0;i<limiteInstrumento-1;i++)
+            for(i=0; i<limiteInstrumento-1; i++)
             {
                 if(!arrayInstrumento[i].isEmpty && !arrayInstrumento[i+1].isEmpty)
                 {
@@ -219,7 +219,8 @@ int instrumento_ordenar(Instrumento* arrayInstrumento,int limiteInstrumento,int 
                     }
                 }
             }
-        }while(flagSwap);
+        }
+        while(flagSwap);
     }
     return retorno;
 }
@@ -237,7 +238,7 @@ static int buscarLugarLibre(Instrumento* arrayInstrumento,int limiteInstrumento)
     int i;
     if(limiteInstrumento> 0 && arrayInstrumento!=NULL)
     {
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             if(arrayInstrumento[i].isEmpty==1)
             {
@@ -308,7 +309,7 @@ int instrumento_buscarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,
     if(limiteInstrumento>0 && arrayInstrumento!=NULL)
     {
         retorno=-2;
-        for(i=0;i<limiteInstrumento;i++)
+        for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty && arrayInstrumento[i].idInstrumento==idInstrumento)
             {
@@ -340,30 +341,30 @@ int instrumento_mostrar(Instrumento* arrayInstrumento, int limiteInstrumento)
         for(i=0; i<limiteInstrumento; i++)
         {
             if(!arrayInstrumento[i].isEmpty)//==0
-               {
-                    tipo=arrayInstrumento[i].tipo;
-                    switch(tipo)
-                    {
-                        printf("[RELEASE] -ID.Instrumento: %d -NOMBRE: %s -TIPO: %d \n",
-                                    arrayInstrumento[i].idInstrumento,
-                                    arrayInstrumento[i].nombre,
-                                    arrayInstrumento[i].tipo);
-                                case 1:
-                                    printf("Cuerdas ");
-                                    break;
-                                case 2:
-                                    printf("Viento-madera");
-                                    break;
-                                case 3:
-                                    printf("Viento-metal");
-                                    break;
-                                case 4:
-                                    printf("Percusion");
-                                    break;
-                    }
-               }
+            {
+                tipo=arrayInstrumento[i].tipo;
+                switch(tipo)
+                {
+                    printf("[RELEASE] -ID.Instrumento: %d -NOMBRE: %s -TIPO: %d \n",
+                           arrayInstrumento[i].idInstrumento,
+                           arrayInstrumento[i].nombre,
+                           arrayInstrumento[i].tipo);
+                case 1:
+                    printf("Cuerdas ");
+                    break;
+                case 2:
+                    printf("Viento-madera");
+                    break;
+                case 3:
+                    printf("Viento-metal");
+                    break;
+                case 4:
+                    printf("Percusion");
+                    break;
+                }
+            }
         }
-}
-     return retorno;
+    }
+    return retorno;
 }
 
