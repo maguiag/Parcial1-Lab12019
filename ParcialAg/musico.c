@@ -1,4 +1,5 @@
 #include <stdio.h>
+//include <stdio_ext.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -331,4 +332,77 @@ int musico_buscarPorId(Musico* arrayMusico,int limiteMusico,int idMusico)
     return retorno;
 }
 
+/** \brief muestra musicos segun orquesta
+ *
+ * \param  puntero a musico, limite del array musico
+ * \param id
+ * \return [0] si ok, [-1] si error
+ *
+ */
 
+int musico_mostrarPorOrquesta(Musico* arrayMusico,int limiteMusico, int id)
+{
+    int retorno=-1;
+    int i;
+    Musico auxMusico;
+
+    if(arrayMusico!=NULL && limiteMusico>0)
+    {
+        printf("\nListar\n");
+        for(i=0;i<limiteMusico;i++)
+        {
+            if(arrayMusico[i].idOrquesta==id)
+            {
+                retorno=0;
+                auxMusico=arrayMusico[i];
+                printf("\nId: %d - Nombre: %s - Apellido: %s - Edad: %d - IdOrquesta: %d \n",auxMusico.idMusico,
+                                                                                            auxMusico.nombre,
+                                                                                            auxMusico.apellido,
+                                                                                            auxMusico.edad,
+                                                                                            auxMusico.idOrquesta);
+            }
+        }
+    }
+    return retorno;
+}
+
+/** \brief ordena musicos segun apellido
+ *
+ * \param puntero a musico, limite del array musico
+ * \param orden
+ * \return [0] si ok, [-1] si error
+ *
+ */
+
+int musico_ordenarApellido(Musico* arrayMusico,int limiteMusico,int orden)
+{
+    int retorno=-1;
+    int flag;
+    int i;
+
+    Musico auxEstructura;
+    if(arrayMusico!=NULL && limiteMusico>0)
+   {
+     do
+    {
+        flag=0;
+        for(i=0;i<limiteMusico-1;i++)
+        {
+            if(!arrayMusico[i].isEmpty && !arrayMusico[i+1].isEmpty)
+            {
+
+                if((strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)>0 && orden) ||
+                    (strcmp(arrayMusico[i].apellido,arrayMusico[i+1].apellido)<0 && !orden))
+                {
+                    auxEstructura=arrayMusico[i];
+                    arrayMusico[i]=arrayMusico[i+1];
+                    arrayMusico[i+1]=auxEstructura;
+                    flag=1;
+                }
+            }
+        }
+    }while(flag);
+
+    }
+     return retorno;
+}
