@@ -1,5 +1,5 @@
 #include <stdio.h>
-//include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -121,7 +121,7 @@ int main()
         case 18:
             break;
         default:
-            printf("\nError. Ingrese una opción valida\n");
+            printf("\nError. Ingrese una opciÃ³n valida\n");
         }
     }
     while(opcion!=18);
