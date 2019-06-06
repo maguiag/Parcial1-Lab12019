@@ -1,5 +1,5 @@
 #include <stdio.h>
-//include <stdio_ext.h>
+//#include <stdio_ext.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -172,7 +172,7 @@ int informe_OrquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta,
     return retorno;
 }
 
-/** \brief Informa musicos de mas de 30 años
+/** \brief Informa musicos de mas de 30 aÃ±os
  *
  * \param puntero a musico
  * \param limite  definido para el array musico
