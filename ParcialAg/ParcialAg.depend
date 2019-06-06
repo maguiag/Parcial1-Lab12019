@@ -69,3 +69,73 @@
 	"utn.h"
 	"informes.h"
 
+1559856963 source:c:\users\alumno\desktop\parcialag\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+	"informes.h"
+
+1559761880 c:\users\alumno\desktop\parcialag\musico.h
+
+1558297554 c:\users\alumno\desktop\parcialag\orquesta.h
+	"musico.h"
+	"instrumento.h"
+
+1559844376 c:\users\alumno\desktop\parcialag\instrumento.h
+
+1558222964 c:\users\alumno\desktop\parcialag\utn.h
+
+1559821416 c:\users\alumno\desktop\parcialag\informes.h
+
+1559856305 source:c:\users\alumno\desktop\parcialag\instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+
+1559856816 source:c:\users\alumno\desktop\parcialag\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"instrumento.h"
+	"utn.h"
+	"informes.h"
+
+1559856305 source:c:\users\alumno\desktop\parcialag\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"musico.h"
+	"orquesta.h"
+	"utn.h"
+
+1559856305 source:c:\users\alumno\desktop\parcialag\orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"utn.h"
+
+1559856305 source:c:\users\alumno\desktop\parcialag\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+

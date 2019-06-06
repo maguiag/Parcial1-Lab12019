@@ -267,7 +267,7 @@ static int proximoId()
  * \param nombre char* fuerza el nombre
  * \param apellido char* fuerza el apellido
  * \param cuit char* fuerza el cuit
- * \return int [0] OK [-1] ERROR
+ * \return int [0] OK, [-1] ERROR
  *
  */
 int instrumento_altaForzada(Instrumento* arrayInstrumento,int limiteInstrumento,char* nombre,int tipo)
@@ -324,7 +324,7 @@ int instrumento_buscarPorId(Instrumento* arrayInstrumento,int limiteInstrumento,
  * \param array Instrumento* puntero al array
  * \param limite int limite definido para el instrumento
  * \param
- * \return int [0] OK [-1] ERROR
+ * \return int [0] OK, [-1] ERROR
  *
  */
 int instrumento_mostrar(Instrumento* arrayInstrumento,int limiteInstrumento)
@@ -365,6 +365,14 @@ int instrumento_mostrar(Instrumento* arrayInstrumento,int limiteInstrumento)
     }
     return retorno;
 }
+
+/** \brief Busca instrumentos segun el tipo
+ *
+ * \param puntero a Intrumento, limite definido para instrumento
+ * \param tipo de instrumento a buscar
+ * \return entero que corresponde a la posicion del Id, [-1] [-2] si error
+ *
+ */
 
 int instrumento_buscarPorTipo(Instrumento* arrayInstrumento,int limiteInstrumento,int tipo)
 {

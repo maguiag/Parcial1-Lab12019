@@ -172,7 +172,7 @@ int informe_OrquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta,
     return retorno;
 }
 
-/** \brief Informa musicos de mas de 30 aÃ±os
+/** \brief Informa musicos de mas de 30 años
  *
  * \param puntero a musico
  * \param limite  definido para el array musico
@@ -389,7 +389,7 @@ int informar_promedioMusicos(Orquesta* arrayOrquesta,int limiteOrquesta,
 /** \brief Informa musicos segun orquesta
  *
  * \param puntero a orquesta, limite definido para array orquesta
- * \param puntero a musico, limite deefinido para array musico
+ * \param puntero a musico, limite definido para array musico
  * \param id de la orquesta a buscar
  * \return [0] si ok, [-1] si error
  *
@@ -412,7 +412,7 @@ int informar_musicosPorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta,
 
 /** \brief Informa musicos con instrumentos de cuerda
  *
- * \param puntero a musico, limite deefinido para array musico
+ * \param puntero a musico, limite definido para array musico
  * \param puntero a instrumento, limite definido para array instrumento
  * \return [0] si ok, [-1] si error
  *
@@ -440,12 +440,12 @@ int informar_musicosCuerda(Musico* arrayMusico,int limiteMusico,
                     musico_ordenarApellido(arrayMusico,limiteMusico,1);
                   //  auxIndice=instrumento_buscarPorId(arrayInstrumento,limiteInstrumento,arrayMusico[i].idInstrumento);
                     printf("[RELEASE] IdM: %d  Nombre: %s  Apellido: %s  Edad: %d  idOrq: %d  idInstr: %d\n ",
-                           arrayMusico[i].idMusico,
-                           arrayMusico[i].nombre,
-                           arrayMusico[i].apellido,
-                           arrayMusico[i].edad,
-                           arrayMusico[i].idOrquesta,
-                           arrayMusico[i].idInstrumento);
+                                                                                                   arrayMusico[i].idMusico,
+                                                                                                   arrayMusico[i].nombre,
+                                                                                                   arrayMusico[i].apellido,
+                                                                                                   arrayMusico[i].edad,
+                                                                                                   arrayMusico[i].idOrquesta,
+                                                                                                   arrayMusico[i].idInstrumento);
                 }
             }
         }

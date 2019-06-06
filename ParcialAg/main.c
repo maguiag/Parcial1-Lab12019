@@ -38,8 +38,8 @@ int main()
     musico_altaForzada(musico,CANT_MUSICOS,"Mus5","Amus5",22,1,3);
     musico_altaForzada(musico,CANT_MUSICOS,"Mus6","Amus6",35,3,4);
 
-    instrumento_altaForzada(instrumento,CANT_INSTR,"Inst1",1);
     instrumento_altaForzada(instrumento,CANT_INSTR,"Inst2",2);
+    instrumento_altaForzada(instrumento,CANT_INSTR,"Inst1",1);
     instrumento_altaForzada(instrumento,CANT_INSTR,"Inst3",2);
     instrumento_altaForzada(instrumento,CANT_INSTR,"Inst4",3);
     instrumento_altaForzada(instrumento,CANT_INSTR,"Inst5",4);
@@ -121,7 +121,7 @@ int main()
         case 18:
             break;
         default:
-            printf("\nError. Ingrese una opciÃ³n valida\n");
+            printf("\nError. Ingrese una opción valida\n");
         }
     }
     while(opcion!=18);
