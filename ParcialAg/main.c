@@ -46,7 +46,7 @@ int main()
 
     do
     {
-        getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar Musico\n6.Eliminar musico\n7.Imprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.Orquesta +5\n11.Musicos +30\n12.Orquesta por lugar\n13.Orquesta completa\n14.Musicos xOrquesta\n16.Orquesta +Musicos\n16.Musicos cuerda\n17.Promedio\n18.SALIR\n",
+        getValidInt("\n1.Agregar orquesta\n2.Eliminar Orquesta\n3.Imprimir Orquesta\n4.Agregar musico\n5.Modificar Musico\n6.Eliminar musico\n7.Imprimir musico\n8.Agregar instrumento\n9.imprimir instrumento\n10.Orquesta +5\n11.Musicos +30\n12.Orquesta por lugar\n13.Orquesta completa\n14.Musicos xOrquesta\n15.Orquesta +Musicos\n16.Musicos cuerda\n17.Promedio\n18.SALIR\n\n",
                     "\nERROR",&opcion,1,20,3);
         switch(opcion)
         {
@@ -90,13 +90,13 @@ int main()
             informar_musicosEdadMasTreinta(musico,CANT_MUSICOS);
             break;
         case 12:
-            if(!getStringAlfaNumerico("\nIngrese lugar: ", lugar))
+            if(!getValidAlfaNumerico("\nIngrese lugar: ","\nERROR\n","Error en extencion",lugar,31,2))
             {
                 informar_orquestaByLugar(orquesta,CANT_ORQ,lugar);
             }
             else
             {
-                printf("\nError");
+                printf("\nNo se encuentran orquestas.\n");
             }
             break;
         case 13:
@@ -118,9 +118,12 @@ int main()
         case 17:
             informar_promedioMusicos(orquesta,CANT_ORQ,musico,CANT_MUSICOS);
             break;
+        case 18:
+            break;
+        default:
+            printf("\nError. Ingrese una opción valida\n");
         }
     }
-    while(opcion!=19);
-
+    while(opcion!=18);
     return 0;
 }

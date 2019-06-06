@@ -4,7 +4,7 @@
 //informar_musicosByOrquesta(Orquesta* arrayOrquesta, int limiteOrquesta,Musico* arrayMusico,int limiteMusico);
 //int informar_musicosByOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta,Musico* arrayMusico,intlimiteMusico);
 int contadorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta);
-int contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico,int idOrquesta);
+//int contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico);
 int contador_orquestaByTipo(Orquesta* arrayOrquesta,int limiteOrquesta,int tipo);
 int contador_instrumentosByTipo(Instrumento* arrayInstrumento,int limiteInstrumento,int tipo);
 int contador_musicos(Musico* arrayMusico, int limiteMusico);

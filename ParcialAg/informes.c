@@ -23,6 +23,7 @@ int contadorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta)
     int retorno=-1;
     int i;
     int cantOrquestas=0;
+
     if(arrayOrquesta!=NULL && limiteOrquesta>0)
     {
         for(i=0; i<limiteOrquesta; i++)
@@ -37,33 +38,7 @@ int contadorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta)
     return retorno;
 }
 
-/** \brief cunta musicos segun idOrquesta
- *
- * \param pauntero a orquesta
- * \param limite definido para el array
- * \return cuantos musicos segun idOrquesta
- *
- */
 
-int contador_musicosByOrquesta(Musico* arrayMusico,int limiteMusico,int idOrquesta)
-{
-    int retorno =-1;
-    int i;
-    int contMusicosByOrquesta=0;
-
-    if(arrayMusico!=NULL && limiteMusico>0)
-    {
-        for(i=0; i<limiteMusico; i++)
-        {
-            if(arrayMusico[i].isEmpty==0 && arrayMusico[i].idOrquesta==idOrquesta)
-            {
-                contMusicosByOrquesta++;
-            }
-        }
-        retorno=contMusicosByOrquesta;
-    }
-    return retorno;
-}
 
 /** \brief contador de orquestas segun tipo
  *
@@ -78,6 +53,7 @@ int contador_orquestaByTipo(Orquesta* arrayOrquesta,int limiteOrquesta,int tipo)
     int retorno=-1;
     int i;
     int contOrqByTipo=0;
+
     if(arrayOrquesta!=NULL && limiteOrquesta>0)
     {
         for(i=0; i<limiteOrquesta; i++)
@@ -89,7 +65,6 @@ int contador_orquestaByTipo(Orquesta* arrayOrquesta,int limiteOrquesta,int tipo)
         }
         return contOrqByTipo;
     }
-
     return retorno;
 }
 
@@ -106,6 +81,7 @@ int contador_instrumentosByTipo(Instrumento* arrayInstrumento,int limiteInstrume
     int retorno=-1;
     int i;
     int contInst=0;
+
     if(arrayInstrumento!=NULL && limiteInstrumento>0)
     {
         for(i=0; i<limiteInstrumento; i++)
@@ -133,6 +109,7 @@ int contador_musicos(Musico* arrayMusico, int limiteMusico)
     int retorno=-1;
     int i;
     int cantMusicos=0;
+
     if(arrayMusico!=NULL && limiteMusico>0)
     {
         for(i=0; i<limiteMusico; i++)
@@ -166,7 +143,6 @@ int informe_OrquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta,
     int cantMusicos;
     int masMusicos=0;
 
-
     if((arrayOrquesta!=NULL && limiteOrquesta>0) && (arrayMusico!=NULL && limiteMusico>0))
     {
         retorno = 0;
@@ -189,10 +165,9 @@ int informe_OrquestaMasMusicos(Orquesta* arrayOrquesta, int limiteOrquesta,
                     IndiceOrquesta = i;
                 }
             }
-
         }
         orquesta_mostrarPorId(arrayOrquesta,limiteOrquesta,IndiceOrquesta);
-        printf("Tiene %d musicos\n",masMusicos);
+        printf("[RELEASE] La orquesta tiene %d musicos.\n",masMusicos);
     }
     return retorno;
 }
@@ -217,7 +192,7 @@ int informar_musicosEdadMasTreinta(Musico* arrayMusico, int limiteMusico)
             if(!arrayMusico[i].isEmpty && arrayMusico[i].edad>30)
             {
                 retorno=0;
-                printf("\nId: %d Nombre: %s Apellido: %s Edad: %d Orquesta: %d Instrumento: %d \n",
+                printf("[RELEASE] IdM: %d  Nombre: %s  Apellido: %s  Edad: %d  idOrq: %d  idInstr: %d\n ",
                        arrayMusico[i].idMusico,
                        arrayMusico[i].nombre,
                        arrayMusico[i].apellido,
@@ -229,6 +204,7 @@ int informar_musicosEdadMasTreinta(Musico* arrayMusico, int limiteMusico)
     }
     return retorno;
 }
+
 
 /** \brief Informa las orquesta segun por lugar
  *
@@ -251,14 +227,13 @@ int informar_orquestaByLugar(Orquesta* arrayOrquesta, int limiteOrquesta, char* 
                 if(!strcmp(arrayOrquesta[i].lugar,lugar))
                 {
                     retorno=0;
-                    printf("\nId:  %d Nombre: %s Tipo: %d\n",
+                    printf("[RELEASE] IdO: %d  Nombre: %s Tipo: %d \n",
                            arrayOrquesta[i].idOrquesta,
                            arrayOrquesta[i].nombre,
                            arrayOrquesta[i].tipo);
                 }
             }
         }
-
     }
     return retorno;
 }
@@ -276,25 +251,38 @@ int informar_orquestaMasCinco(Musico* arrayMusico, int limiteMusico,
 {
     int retorno=-1;
     int i;
-    int contadorMusicos;
+    int j;
+    int cantMusicos;;
 
-
-    if((arrayMusico!=NULL && limiteMusico>0)&&(arrayOrquesta!=NULL && limiteOrquesta>0))
+    if((arrayOrquesta!=NULL && limiteOrquesta>0) && (arrayMusico!=NULL && limiteMusico>0))
     {
         for(i=0; i<limiteOrquesta; i++)
         {
-            if(!arrayMusico[i].isEmpty)
+            //cantMusicos=contador_musicos(arrayMusico,limiteMusico);
+            if(!arrayOrquesta[i].isEmpty)
             {
-                contadorMusicos=contador_musicosByOrquesta(arrayMusico,limiteMusico,arrayMusico[i].idOrquesta);
-                if(contadorMusicos>5)
+                cantMusicos=0;
+                for(j=0; j<limiteMusico; j++)
                 {
-                    retorno=0;
-                    printf("\nId: %d Nombre: %s Lugar: %s Tipo: %d\n",arrayOrquesta[i].idOrquesta,
-                           arrayOrquesta[i].nombre,
-                           arrayOrquesta[i].lugar,
-                           arrayOrquesta[i].tipo);
+                    if(!arrayMusico[j].isEmpty && arrayOrquesta[i].idOrquesta==arrayMusico[j].idOrquesta)
+                    {
+                        cantMusicos++;
+                    }
                 }
             }
+        }
+        retorno=0;
+        if(cantMusicos>5)
+        {
+            printf("[RELEASE] IdO: %d  Nombre: %s  Lugar: %s  Tipo: %d \n",arrayOrquesta[i].idOrquesta,
+                   arrayOrquesta[i].nombre,
+                   arrayOrquesta[i].lugar,
+                   arrayOrquesta[i].tipo);
+
+        }
+        if(cantMusicos<=5)
+        {
+            printf("[RELEASE] No hay Orquestas con mas de 5 musicos. \n");
         }
     }
     return retorno;
@@ -346,16 +334,20 @@ int informar_orquestaCompleta(Orquesta* arrayOrquesta,int limiteOrquesta,
                         }
                     }
                 }
-                if(cuerda>=5 && viento>=3 && percusion>=2)
-                {
-                    retorno=0;
-                    printf("Id: %d - Nombre: %s - Lugar: %s - tipo: %s",arrayOrquesta[i].idOrquesta,
-                           arrayOrquesta[i].nombre,
-                           arrayOrquesta[i].lugar,
-                           arrayOrquesta[i].tipo);
-                }
             }
         }
+        retorno=0;
+        if(cuerda>=5 && viento>=3 && percusion>=2)
+                {
+                    printf("[RELEASE] IdO: %d  Nombre: %s Lugar: %s Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
+                                                                                   arrayOrquesta[i].nombre,
+                                                                                   arrayOrquesta[i].lugar,
+                                                                                   arrayOrquesta[i].tipo);
+                }
+                else
+                {
+                    printf("[RELEASE] Ninguna Orquesta se encuentra completa.\n");
+                }
     }
     return retorno;
 }
@@ -387,7 +379,7 @@ int informar_promedioMusicos(Orquesta* arrayOrquesta,int limiteOrquesta,
         else
         {
             retorno=0;
-            printf("\nEl promedio de musicos es de: %.2f",(float)cantMusicos/cantOrquestas);
+            printf("[RELEASE] El promedio de musicos es de: %.2f",(float)cantMusicos/cantOrquestas);
         }
     }
 
@@ -408,6 +400,7 @@ int informar_musicosPorOrquesta(Orquesta* arrayOrquesta,int limiteOrquesta,
                                 int id)
 {
     int retorno=-1;
+
     if((arrayOrquesta!=NULL && limiteOrquesta>0) && (arrayMusico!=NULL && limiteMusico>0))
     {
         retorno=0;
@@ -429,30 +422,37 @@ int informar_musicosCuerda(Musico* arrayMusico,int limiteMusico,
                            Instrumento* arrayInstrumento,int limiteInstrumento)
 {
     int retorno=-1;
-    int auxIndice;
     int i;
+    int j;
+  // int auxIndice;
+    int auxCuerda=0;
 
-    if((arrayMusico!=NULL && limiteMusico>0) && (arrayInstrumento!=NULL && limiteInstrumento>0))
+    for(i=0; i<limiteMusico; i++)
     {
-        musico_ordenarApellido(arrayMusico,limiteMusico,1);
-        for(i=0; i<limiteMusico; i++)
+        for(j=0; j<limiteInstrumento; j++)
         {
-
-            if(!arrayMusico[i].isEmpty)
+            if( !arrayMusico[i].isEmpty && !arrayInstrumento[j].isEmpty && arrayMusico[i].idInstrumento==arrayInstrumento[j].idInstrumento)
             {
-                instrumento_buscarPorId(arrayInstrumento,limiteInstrumento,&auxIndice);
-                if(arrayInstrumento[auxIndice].tipo==1)
+                if(arrayInstrumento[j].tipo==1)
                 {
                     retorno=0;
-                    printf("\nId: %d Nombre: %s Apellido: %s Edad: %d Orquesta: %d \n",arrayMusico[auxIndice].idMusico,
-                           arrayMusico[auxIndice].nombre,
-                           arrayMusico[auxIndice].apellido,
-                           arrayMusico[auxIndice].edad,
-                           arrayMusico[auxIndice].idOrquesta);
+                    auxCuerda=1;
+                    musico_ordenarApellido(arrayMusico,limiteMusico,1);
+                  //  auxIndice=instrumento_buscarPorId(arrayInstrumento,limiteInstrumento,arrayMusico[i].idInstrumento);
+                    printf("[RELEASE] IdM: %d  Nombre: %s  Apellido: %s  Edad: %d  idOrq: %d  idInstr: %d\n ",
+                           arrayMusico[i].idMusico,
+                           arrayMusico[i].nombre,
+                           arrayMusico[i].apellido,
+                           arrayMusico[i].edad,
+                           arrayMusico[i].idOrquesta,
+                           arrayMusico[i].idInstrumento);
                 }
             }
         }
     }
-
+    if(auxCuerda==0)
+    {
+        printf("[RELEASE] No hay musicos que toquen instrumentos de cuerda.\n");
+    }
     return retorno;
 }

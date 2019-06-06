@@ -53,7 +53,7 @@ int orquesta_mostrarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrque
         for(i=0; i<limiteOrquesta; i++)
         {
             if(!arrayOrquesta[i].isEmpty && arrayOrquesta[i].idOrquesta==idOrquesta)
-                printf("[RELEASE] -ID: %d -NOMBRE: %s -LUGAR: %s -TIPO: %d\n",
+                printf("[RELEASE] Id: %d  Nombre: %s  Lugar: %s  Tipo: %d\n",
                        arrayOrquesta[i].idOrquesta,
                        arrayOrquesta[i].nombre,
                        arrayOrquesta[i].lugar,
@@ -95,7 +95,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int limiteOrquesta)
                         arrayOrquesta[i].tipo=auxTipo;
                         arrayOrquesta[i].idOrquesta=proximoId();
                         arrayOrquesta[i].isEmpty=0;
-                        printf("\nEl IdOrquesta es: %d\n",arrayOrquesta[i].idOrquesta);
+                        printf("[RELEASE] El IdOrquesta es: %d\n",arrayOrquesta[i].idOrquesta);
                     }
                 }
             }
@@ -130,7 +130,6 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
     getValidInt("\nDesea Eliminar Orquesta y musicos vinculados? (1.si/2.no)\n","\no Valido",&opcion,0,1,2);
     if(opcion==1)
     {
-
         if(limiteOrquesta>0 && arrayOrquesta!=NULL)
         {
             retorno = -2;
@@ -157,8 +156,6 @@ int orquesta_baja_musico(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrques
             }
         }
     }
-
-
     return retorno;
 }
 
@@ -180,12 +177,11 @@ int orquesta_mostrar(Orquesta* arrayOrquesta, int limiteOrquesta)
         for(i=0; i<limiteOrquesta; i++)
         {
             if(!arrayOrquesta[i].isEmpty)//==0
-                printf("[RELEASE] - ID Orquesta: %d - Nombre: %s - Lugar: %s - Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
+                printf("[RELEASE] IdO: %d  Nombre: %s  Lugar: %s  Tipo: %d \n ",arrayOrquesta[i].idOrquesta,
                        arrayOrquesta[i].nombre,
                        arrayOrquesta[i].lugar,
                        arrayOrquesta[i].tipo);
         }
-
     }
     return retorno;
 }
@@ -307,7 +303,7 @@ int orquesta_altaForzada(Orquesta* arrayOrquesta,int limiteOrquesta,char* nombre
  * \param array Orquesta* puntero al array
  * \param limite int limite definido para orquesta
  * \param idOrquesta int id del orquesta buscado
- * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id, [-1] si error
+ * \return int retorna un entero que corresponde a la posicion en la que se encuentra ese Id, [-1] [-2] si error
  *
  */
 int orquesta_buscarPorId(Orquesta* arrayOrquesta,int limiteOrquesta,int idOrquesta)

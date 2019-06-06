@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1559768685 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.c
+1559844375 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -15,11 +15,11 @@
 	"musico.h"
 	"instrumento.h"
 
-1559761879 c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.h
+1559844375 c:\users\user\downloads\parcial1-lab12019-master\parcialag\instrumento.h
 
 1558222963 c:\users\user\downloads\parcial1-lab12019-master\parcialag\utn.h
 
-1559768685 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\main.c
+1559843761 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -30,9 +30,9 @@
 	"utn.h"
 	"informes.h"
 
-1559767502 c:\users\user\downloads\parcial1-lab12019-master\parcialag\informes.h
+1559821415 c:\users\user\downloads\parcial1-lab12019-master\parcialag\informes.h
 
-1559768685 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\musico.c
+1559843969 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\musico.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -41,7 +41,7 @@
 	"orquesta.h"
 	"utn.h"
 
-1559768685 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\orquesta.c
+1559843885 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\orquesta.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -58,7 +58,7 @@
 	<string.h>
 	"utn.h"
 
-1559768685 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\informes.c
+1559844294 source:c:\users\user\downloads\parcial1-lab12019-master\parcialag\informes.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
